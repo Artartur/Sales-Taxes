@@ -1,14 +1,15 @@
-package Products;
+package Model.Products;
 
-public enum Others {
-    BIKE("Bike", 10.0),
-    CD("Music CD", 14.99),
-    PERFUME("Bottle of perfume", 47.50);
+public enum Books {
+    HARRY_POTTER("Harry Potter", 32.00),
+    LORD_OF_THE_RINGS("Lord Of The Rings", 45.00),
+    GAME_OF_THRONES("Game of Thrones", 50.00);
+
 
     private final String productName;
     private final double price;
 
-    private Others(String productName, double price) {
+    private Books(String productName, double price) {
         this.productName = productName;
         this.price = price;
     }
@@ -16,6 +17,7 @@ public enum Others {
     public String getProductName(){
         return productName;
     }
+
     public double getPrice() {
         return price;
     }

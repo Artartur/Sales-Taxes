@@ -1,4 +1,4 @@
-package Products;
+package Model.Products;
 
 public enum Foods {
     CHOCOLATE("Box of Chocolates", 10.00),

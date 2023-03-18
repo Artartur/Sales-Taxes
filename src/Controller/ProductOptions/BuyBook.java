@@ -1,13 +1,12 @@
-package Options;
-
-import Product.Product;
-import Products.Books;
-
+package Controller.ProductOptions;
+import Model.Product;
+import Model.Products.Books;
 import java.util.Scanner;
 
-public class buyBook {
-    public static void buyBook(Scanner scanner){
+public class BuyBook {
+    public static Product buyBook(Scanner scanner){
         Product book = new Product();
+
         System.out.println("Which is the product would you like to buy? \n 1 - Harry Potter \n 2 - Lord of the Rings \n 3 - Game of Thrones");
         int bookOption = scanner.nextInt();
         switch (bookOption) {
@@ -39,5 +38,7 @@ public class buyBook {
         } else {
             System.out.println("Enter a valid number");
         }
+
+        return book;
     }
 }

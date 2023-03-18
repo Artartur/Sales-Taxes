@@ -1,24 +1,34 @@
-package Product;
+package Model;
 
 public class Product {
     private int amount;
     public int isImported;
     private double price;
     private String productName;
-    private final double tax = 1.10;
-    private final double importTax = 1.05;
-    private final double importTaxPlusTax = 1.15;
+    private final double salesTax = 0.10;
+    private final double importTax = 0.05;
+    private final double importTaxPlusSalesTax = 0.15;
     private double total;
 
     public double tax(){
-        return (price * amount) * tax;
+        return price * amount * salesTax;
     } // Imposto para produtos Others nao importados
-    public double importTaxPlusTax(){
-        return price * amount * importTaxPlusTax;
-    }  // Imposto para produtos Others importados
+    public double test(){
+        return price + tax();
+    }
+    public double testImport(){
+        return price + importTax();
+    }
+    public double testImportPlus(){
+        return price + importTaxPlusTax();
+    }
     public double importTax(){
         return price * amount * importTax;
     } // Imposto para produtos importados
+    public double importTaxPlusTax(){
+        return price * amount * importTaxPlusSalesTax;
+    }  // Imposto para produtos importados com taxas
+
     public double amountTaxes(){
         return tax() - importTax();
     } // Quantidade de imposto que foi cobrado ao todo
@@ -47,18 +57,6 @@ public class Product {
         this.productName = productName;
     }
 
-    public double getTax() {
-        return tax;
-    }
-
-    public double getImportTax() {
-        return importTax;
-    }
-
-    public double getImportTaxPlusTax() {
-        return importTaxPlusTax;
-    }
-
     public double getTotal() {
         return total;
     }
@@ -67,11 +65,11 @@ public class Product {
         this.total = total;
     }
 
-    @Override
-    public String toString() {
-        return  getAmount() + " "+getProductName() + ':' + getPrice() +
-                "\nSales Taxes: " + amountTaxes() +
-                "\nTotal: " + total;
-    }
+//    @Override
+//    public String toString() {
+//        return  "\n"+ getAmount() + " "+getProductName() + ':' + getPrice() +
+//                "\nSales Taxes: " + amountTaxes() +
+//                "\nTotal: "+ getTotal() + "\n";
+//    }
 
 }

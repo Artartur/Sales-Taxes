@@ -1,12 +1,12 @@
-package Options;
+package Controller.ProductOptions;
 
-import Product.Product;
-import Products.MedicalProducts;
+import Model.Product;
+import Model.Products.MedicalProducts;
 
 import java.util.Scanner;
 
-public class buyMedical {
-    public static void buyMedical(Scanner scanner){
+public class BuyMedical {
+    public static Product buyMedical(Scanner scanner){
         Product medical = new Product();
         System.out.println("Which is the product would you like to buy? \n 1 - Headache Pills \n 2 - Stomachache Pills \n 3 - Painkillers");
         int medicalOption = scanner.nextInt();
@@ -39,5 +39,6 @@ public class buyMedical {
         } else {
             System.out.println("Enter a valid number");
         }
+        return medical;
     }
 }
