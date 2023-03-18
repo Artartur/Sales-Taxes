@@ -12,7 +12,7 @@ public class Product {
 
     public double tax(){
         return price * amount * salesTax;
-    } // Imposto para produtos Others nao importados
+    }
     public double test(){
         return price + tax();
     }
@@ -24,14 +24,14 @@ public class Product {
     }
     public double importTax(){
         return price * amount * importTax;
-    } // Imposto para produtos importados
+    }
     public double importTaxPlusTax(){
         return price * amount * importTaxPlusSalesTax;
-    }  // Imposto para produtos importados com taxas
+    }
 
     public double amountTaxes(){
         return tax() - importTax();
-    } // Quantidade de imposto que foi cobrado ao todo
+    }
 
     public int getAmount() {
         return amount;
@@ -64,12 +64,6 @@ public class Product {
     public void setTotal(double total) {
         this.total = total;
     }
-
-//    @Override
-//    public String toString() {
-//        return  "\n"+ getAmount() + " "+getProductName() + ':' + getPrice() +
-//                "\nSales Taxes: " + amountTaxes() +
-//                "\nTotal: "+ getTotal() + "\n";
-//    }
+    
 
 }
