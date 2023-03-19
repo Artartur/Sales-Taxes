@@ -14,7 +14,6 @@ public class Main {
         Locale.setDefault(Locale.US);
         Scanner inputScanner = new Scanner(System.in);
         ArrayList<Product> products = new ArrayList<Product>();
-
         ExemptProducts exemptProductsInstances = new ExemptProducts();
         BuyOther otherInstances = new BuyOther();
 
@@ -50,34 +49,16 @@ public class Main {
 
 
         double price= 0;
-        double priceTaxed = 0;
+        double finalPrice = 0;
 
-        String prod = products.stream().map(product -> String.format("%s", product.getProductName())).collect(Collectors.joining(", \n"));
-        System.out.println(prod);
-
-        //ExemptProducts
-
-        price = products.stream().mapToDouble(Product::getPrice).reduce(0, Double::sum);
-        priceTaxed = products.stream().mapToDouble(Product::importTax).reduce(0, Double::sum);
-        System.out.println("price: "+ price);
-        System.out.println("Sales Taxes: " + (priceTaxed-price));
-        System.out.println("Total: "+ (priceTaxed));
-
-
-        // Others
+        for(Product product : products){
+            System.out.println(product.toString());
+        }
 
         price = products.stream().mapToDouble(Product::getPrice).reduce(0, Double::sum);
-        priceTaxed = products.stream().mapToDouble(Product::importTaxPlusTax).reduce(0, Double::sum);
-
-        System.out.println("Sales Taxes: " + (priceTaxed-price));
-        System.out.println("Total: "+ (priceTaxed));
-
-        price = products.stream().mapToDouble(Product::getPrice).reduce(0, Double::sum);
-        priceTaxed = products.stream().mapToDouble(Product::tax).reduce(0, Double::sum);
-
-        System.out.println("Sales Taxes: " + (priceTaxed-price));
-        System.out.println("Total: "+ (priceTaxed));
-
+        finalPrice = products.stream().mapToDouble(Product::getFinalPrice).reduce(0, Double::sum);
+        System.out.printf("Sales Taxes: %.2f\n", finalPrice-price);
+        System.out.println("Total: "+ (finalPrice));
 
     }
     }
