@@ -10,8 +10,11 @@ public class BuyOther {
 
         System.out.println("What product do you want to buy?");
         other.setProductName(scanner.next());
+        scanner.nextLine();
         System.out.println("How much is this product?");
-        other.setPrice(scanner.nextDouble());
+        double initialPrice = scanner.nextDouble();
+        other.setPrice(initialPrice);
+        other.setFinalPrice(initialPrice);
         System.out.println("How many "+ other.getProductName() +" do you want?");
         other.setAmount(scanner.nextInt());
         System.out.println("Is the product imported?");
