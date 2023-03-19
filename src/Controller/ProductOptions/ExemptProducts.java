@@ -2,8 +2,8 @@ package Controller.ProductOptions;
 import Model.Product;
 import java.util.Scanner;
 
-public class BuyFood {
-    public static Product buyFood(Scanner scanner){
+public class ExemptProducts {
+    public static Product BuyExemptProducts(Scanner scanner){
         Product product = new Product();
 
         System.out.println("What product do you want to buy?");
