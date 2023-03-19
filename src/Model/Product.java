@@ -8,7 +8,6 @@ public class Product {
     private final double salesTax = 0.10;
     private final double importTax = 0.05;
     private final double importTaxPlusSalesTax = 0.15;
-    private double total;
 
     public double tax(){
         return price * amount * salesTax;
@@ -27,10 +26,6 @@ public class Product {
     }
     public double importTaxPlusTax(){
         return price * amount * importTaxPlusSalesTax;
-    }
-
-    public double amountTaxes(){
-        return tax() - importTax();
     }
 
     public int getAmount() {
@@ -56,14 +51,5 @@ public class Product {
     public void setProductName(String productName) {
         this.productName = productName;
     }
-
-    public double getTotal() {
-        return total;
-    }
-
-    public void setTotal(double total) {
-        this.total = total;
-    }
-    
 
 }
