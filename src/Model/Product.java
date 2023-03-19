@@ -4,26 +4,30 @@ public class Product {
     private int amount;
     public int isImported;
     private double price;
+    private double finalPrice;
     private String productName;
     private final double salesTax = 1.10;
     private final double importTax = 1.05;
     private final double importTaxPlusSalesTax = 1.15;
 
-    public double tax(){
-        return price * amount * salesTax;
+    public void tax(){
+        setFinalPrice(roundValues(getPrice() * amount * salesTax));
     }
 
-    public double importTax(){
-        return price * amount * importTax;
+    public void importTax(){
+        setFinalPrice(roundValues(getPrice() * amount * importTax));
     }
-    public double importTaxPlusTax(){
-        return price * amount * importTaxPlusSalesTax;
-    }
-
-    public int getAmount() {
-        return amount;
+    public void importTaxPlusTax(){
+        setFinalPrice(roundValues(getPrice() * amount * importTaxPlusSalesTax));
     }
 
+    public double getFinalPrice() {
+        return finalPrice;
+    }
+
+    public void setFinalPrice(double finalPrice) {
+        this.finalPrice = finalPrice;
+    }
     public void setAmount(int amount) {
         this.amount = amount;
     }
@@ -44,4 +48,11 @@ public class Product {
         this.productName = productName;
     }
 
+    public static double roundValues(double value){
+        return Math.round(value * 100) / 100.0;
+    }
+    @Override
+    public String toString() {
+        return  amount +" "+ productName + ": " + finalPrice;
+    }
 }
