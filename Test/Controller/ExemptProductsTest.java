@@ -10,7 +10,7 @@ import static org.junit.Assert.*;
 
 public class ExemptProductsTest {
     @Test
-    void testBuyExemptProductsImported() {
+    public void testBuyExemptProductsImported() {
         String input = "book\n10\n1\n1\n";
         Scanner scanner = new Scanner(input);
         Product product = ExemptProducts.BuyExemptProducts(scanner);
