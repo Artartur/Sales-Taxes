@@ -5,6 +5,7 @@ Setup:
         Java JDK 8
         Git and Github (if you are cloning the repository or downloading the project from there)
         Some software to unzip folders (if you download from GitHub)
+        Add classpath Junit on the IntelliJ
 
 Run:
 
@@ -24,6 +25,7 @@ Run:
 Run Test:
 
     To set it up:
+        Go to Test/Controller/ExemptProductsTest or Test/Model/Test
         Go to the dropdown on the left side of the green hammer.
         Press Alt + Insert.
         Choose "JUnit".
