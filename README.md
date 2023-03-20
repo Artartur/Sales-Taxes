@@ -7,7 +7,6 @@ Setup:
 		Git and Github (if you are cloning the repository or downloading the project from there)
 		Some Software to unzip folders (if you download from GitHub)
 Run:
-	
 	- Open the project by IntelliJ
 	
 	- Go to src/View/Main.java
