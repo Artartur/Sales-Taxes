@@ -1,13 +1,13 @@
 Setup:
     To run the project You will need:
-        - IntelliJ
-        - Java JDK
-        - Git and Github (if you are cloning the repository or downloading the project from there)
-        - Some Software to unzip folders (if you download from GitHub)
+        * IntelliJ
+        * Java JDK
+        * Git and Github (if you are cloning the repository or downloading the project from there)
+        * Some Software to unzip folders (if you download from GitHub)
 Run:
-    - Open the project by IntelliJ
-    - Go to src/View/Main.java
-    - Press Shift + F10 (If the executor is already configured, the program will run).
+    > Open the project by IntelliJ
+    > Go to src/View/Main.java
+    > Press Shift + F10 (If the executor is already configured, the program will run).
     
     If nothing happens, probably the executor is not configured yet.
     (To configure it go to the dropdown on the left side of the green hammer > Alt + Insert > Application > Build and run > 
