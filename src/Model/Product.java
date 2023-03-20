@@ -6,6 +6,8 @@ public class Product {
     private double price;
     private double finalPrice;
     private String productName;
+    private ProductType productType;
+
     private final double salesTax = 1.10;
     private final double importTax = 1.05;
     private final double importTaxPlusSalesTax = 1.15;
@@ -24,14 +26,9 @@ public class Product {
     public double getFinalPrice() {
         return finalPrice;
     }
-
     public void setFinalPrice(double finalPrice) {
         this.finalPrice = finalPrice;
     }
-    public void setAmount(int amount) {
-        this.amount = amount;
-    }
-
     public double getPrice() {
         return price;
     }
@@ -39,9 +36,21 @@ public class Product {
     public void setPrice(double price) {
         this.price = price;
     }
+    public void setAmount(int amount) {
+        this.amount = amount;
+    }
+    public int getAmount(){ return amount; }
 
     public String getProductName() {
         return productName;
+    }
+
+    public void setIsImported(int isImported) {
+        this.isImported = isImported;
+    }
+
+    public int getIsImported() {
+        return isImported;
     }
 
     public void setProductName(String productName) {
@@ -54,5 +63,17 @@ public class Product {
     @Override
     public String toString() {
         return  amount +" "+ productName + ": " + finalPrice;
+    }
+
+    public enum ProductType {
+        IMPORTED,
+        NOT_IMPORTED
+    }
+    public ProductType getProductType() {
+        return productType;
+    }
+
+    public void setProductType(ProductType productType) {
+        this.productType = productType;
     }
 }
