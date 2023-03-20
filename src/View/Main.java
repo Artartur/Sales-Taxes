@@ -1,13 +1,12 @@
 package View;
 
-import Controller.ProductOptions.ExemptProducts;
-import Controller.ProductOptions.BuyOther;
+import Controller.ExemptProducts;
+import Controller.BuyOther;
 import Model.Product;
 
 import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Scanner;
-import java.util.stream.Collectors;
 
 public class Main {
     public static void main(String[] args) {
@@ -42,11 +41,15 @@ public class Main {
                     System.out.println("Please, enter a valid number");
                     break;
             }
-            System.out.println("Enter the number representing the product you would like to buy: ");
-            System.out.println(" 1 - Food, Book or Medical products \n 2 - Other \n 0 - Cancel");
-            option = inputScanner.nextInt();
-        }
+            if(a > 1){
+                System.out.println("Enter the number representing the product you would like to buy: ");
+                System.out.println(" 1 - Food, Book or Medical products \n 2 - Other \n 0 - Cancel");
+                option = inputScanner.nextInt();
+            }else{
+                break;
+            }
 
+        }
 
         double price= 0;
         double finalPrice = 0;
