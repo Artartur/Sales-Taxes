@@ -1,31 +1,54 @@
-package Controller.ProductOptions;
+package Controller;
 import Model.Product;
 
 import java.text.DecimalFormat;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class ExemptProducts {
-    public static Product BuyExemptProducts(Scanner scanner){
+    public static Product BuyExemptProducts(Scanner scanner) {
         Product product = new Product();
 
-        System.out.println("What product do you want to buy?");
-        product.setProductName(scanner.next());
-        scanner.nextLine();
-        System.out.println("How much is this product?");
-        double initialPrice = scanner.nextDouble();
-        product.setPrice(initialPrice);
-        product.setFinalPrice(initialPrice);
-        System.out.println("How many "+product.getProductName() +" do you want?");
-        product.setAmount(scanner.nextInt());
-        System.out.println("Is the product imported?");
+        try {
+            System.out.println("What product do you want to buy?");
+            product.setProductName(scanner.next());
+            scanner.nextLine();
+
+            System.out.println("How much is this product?");
+            while (!scanner.hasNextDouble()) {
+                System.out.println("Please enter a valid price:");
+                scanner.next();
+            }
+            double initialPrice = scanner.nextDouble();
+            scanner.nextLine();
+            product.setPrice(initialPrice);
+            product.setFinalPrice(initialPrice);
+
+            System.out.println("How many " + product.getProductName() + " do you want?");
+            while (!scanner.hasNextInt()) {
+                System.out.println("Please enter a valid number:");
+                scanner.next();
+            }
+            product.setAmount(scanner.nextInt());
+            scanner.nextLine();
+
+            System.out.println("Is the product imported?");
             System.out.println("Enter: \n 1 - Yes \n 2 - No");
-            product.isImported = scanner.nextInt();
-        if (product.isImported == 1) {
-            product.importTax();
-        } else if (product.isImported == 2) {
-            product.getPrice();
-        } else {
-            System.out.println("Enter a valid number");
+            while (!scanner.hasNextInt()) {
+                System.out.println("Please enter a valid number:");
+                scanner.next();
+            }
+            int isImported = scanner.nextInt();
+            scanner.nextLine();
+            product.setProductType(isImported == 1 ? Product.ProductType.IMPORTED : Product.ProductType.NOT_IMPORTED);
+
+            if (product.getProductType() == Product.ProductType.IMPORTED) {
+                product.importTax();
+            } else {
+                product.getPrice();
+            }
+        } catch (Exception e) {
+            System.out.println("An error occurred: " + e.getMessage());
         }
         return product;
     }
