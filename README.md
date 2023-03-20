@@ -2,7 +2,7 @@ Setup:
 
     To run the project, you will need:
         IntelliJ
-        Java JDK
+        Java JDK 8
         Git and Github (if you are cloning the repository or downloading the project from there)
         Some software to unzip folders (if you download from GitHub)
 
